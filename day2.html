@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
+<title></title>
+<style type="text/css">
+	
+	#tip{display:block;
+          margin-left:auto;
+          margin-right:auto
+	}
+	#pratice{display:block;
+          margin-left:auto;
+          margin-right:auto
+	}
+</style>
+</head>
+<body>
+<input type="text" value="" id="tip" placeholder="你想做多少道题目">
+<input type="button" value="练习" id="pratice">
+
+</body>
+<script>
+    document.querySelector("input#pratice").onclick=function (){
+        var n=document.getElementById("tip").value;
+		for(var i=0;i<n;i++)
+		{
+		document.write("第"+(i+1)+"题:");
+            const a = Math.floor(Math.random() * 10);
+            const b=Math.floor(Math.random()*10);
+            const c=a+b;
+            const arry = [c, Math.floor(Math.random() * c), Math.floor(Math.random() * (22 - c) + (c+1)), Math.floor(Math.random() * (28) + 23)];
+            const d=Math.floor(Math.floor(Math.random()*4));
+        const arry1=arry.filter((ele,index,ary)=>{
+            return index!=d;
+        });
+         const e=Math.floor(Math.floor(Math.random()*3));
+        const arry2=arry1.filter((ele,index,ary)=>{
+            return index!=e;
+        });
+        const f=Math.floor(Math.floor(Math.random()*2));
+        const arry3=arry2.filter((ele,index,ary)=>{
+            return index!=f;
+        });
+		document.write(a+"+"+b+"=");
+            var newbutton=document.createElement("button");
+            newbutton.textContent='A:'+arry[d];
+
+            var newbutton1=document.createElement("button");
+            newbutton1.textContent='B:'+arry1[e];
+
+            var newbutton2=document.createElement("button");
+            newbutton2.textContent='C:'+arry2[f];
+
+            var newbutton3=document.createElement("button");
+            newbutton3.textContent='D:'+arry3[0];
+
+            document.body.appendChild(newbutton);
+            document.body.appendChild(newbutton1);
+            document.body.appendChild(newbutton2);
+            document.body.appendChild(newbutton3);
+            newbutton.onclick=function(){
+                if (arry[d]==c){alert("答对了");}
+                else {alert("答错了");}
+            };
+            newbutton1.onclick=function(){
+                if (arry1[e]==c){alert("答对了");}
+                else {alert("答错了");}
+            };
+            newbutton2.onclick=function(){
+                if (arry2[f]==c){alert("答对了");}
+                else {alert("答错了");}
+            };
+            newbutton3.onclick=function(){
+                if (arry3[0]==c){alert("答对了");}
+                else {alert("答错了");}
+            };
+		document.write("</br>");
+		}
+	}
+		
+</script>
+</html>
