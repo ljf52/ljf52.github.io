@@ -1,0 +1,90 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小学一年级算术训练APP（20以内）</title>
+    <style>
+        body{
+            text-align: center;
+            font-size: 30px ;
+        }
+        div{
+            margin: auto;
+        }
+        input{
+            text-align: center;
+            font-size: 1em ;
+        }
+        input[button]{
+            margin-right: 1em;
+        }
+        h1{
+            text-align: center;
+        }
+        p{
+            font-size: 1.5em;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<h1>加法计算器</h1>
+<p>按F5刷新</p>
+<div id = 'question'>
+    <input id = "opNum1" type = "text" readonly>
+    <span id="op"> + </span>
+    <input id = "opNum2" type = "text" readonly>
+
+<div id = 'answer'>
+    A. <input type="button" value="20" id = "answerA">
+    B. <input type="button" value="21" id = "answerB">
+    C. <input type="button" value="22" id = "answerC">
+    D. <input type="button" value="23" id = "answerD">
+</div>
+</div>
+<p id="output">
+
+</p>
+<script>
+    var a = Math.floor(Math.random() * 20);
+    var b=Math.floor(Math.random()*20);
+    var c=a+b;
+    document.getElementById('opNum1').value=a;
+    document.querySelector('input#opNum2').value=b;
+    var answerA=document.getElementById('answerA');
+    var answerB=document.getElementById('answerB');
+    var answerC=document.getElementById('answerC');
+    var answerD=document.getElementById('answerD');
+    var output=document.getElementById('output');
+    var arry=[];
+    for (var i=0;i<4;i++){
+        arry[i]=Math.floor(Math.random()*40);
+        for(var j=0;j<i;j++){
+            if (arry[j]==arry[i]||arry[i]==c){
+                i--;
+            }
+        }
+    }
+    arry[Math.floor(Math.random()*4)]=c;
+    answerA.value=arry[0];
+    answerB.value=arry[1];
+    answerC.value=arry[2];
+    answerD.value=arry[3];
+    answerA.onclick=function (){
+        if (answerA.value==c){output.textContent="答对了"}
+        else {output.textContent="答错了"}
+    };
+    answerB.onclick=function (){
+        if (answerB.value==c){output.textContent="答对了"}
+        else {output.textContent="答错了"}
+    }
+    answerC.onclick=function (){
+        if (answerC.value==c){output.textContent="答对了"}
+        else {output.textContent="答错了"}
+    }
+    answerD.onclick=function (){
+        if (answerD.value==c){output.textContent="答对了"}
+        else {output.textContent="答错了"}
+    }
+</script>
+</body>
