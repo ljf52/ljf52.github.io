@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>探索世界</title>
+    <style>
+        body{
+            overflow: hidden;
+        }
+    div{
+        border: 1px solid blueviolet;
+        display: inline-block;
+        width: 10%;
+        height: 10%;
+        margin: 0.5em;
+        padding-top: 100px;
+    }
+</style>
+    <script>
+            function randV(){
+                var sign=Math.random()>0.5?-1:1;
+                return sign*Math.floor(Math.random()*9+1);
+            }
+    </script>
+</head>
+<body>
+<script>
+    document.body.style.width=window.innerWidth-2+'px';
+
+    document.body.style.height=window.innerHeight-2+'px';
+    for (var i=0;i<100;i++){
+        this.vx=randV();
+        this.vy=randV();
+        var divdom=document.createElement('div');
+        document.body.appendChild(divdom);
+        var x=parseInt(divdom.style.left);
+        var y=parseInt(divdom.style.top);
+
+    }
+
+</script>
+</body>
+</html>
